@@ -3,29 +3,72 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" initial-scale="1.0">
-    <title>JS Event Listener</title>
+    <title>JS ToDo App</title>
     <link rel="icon" type="image/jpg" href="Gojosatoru.jpg">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="wrapper">
-         <form id="formFill" class="form-container">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="user_name" placeholder="Enter your name...">
-            <span id="spanName"></span>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="user_email" placeholder="Enter your email...">
-            <span id="spanEmail"></span>
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="1" max="120" step="1" placeholder="Enter your age...">
-            <span id="spanAge"></span>
-            <button type="submit" class="submit">Submit</button>
-        </form>
+<h1 class="title">📌 Mini Task Board</h1>
+        <div class="upper-section">
+        <form id="todo">
+        <input type="value"  id="enterTask" class="inputTask" placeholder="Enter task...">
+        <div class="form-row">
+        <select name="priority" id="priority">
+         <option value="High" id="high" class="high">High Priority</option>
+         <option value="Medium" id="medium" class="medium">Medium Priority</option>
+         <option value="Low" id="low" class="low">Low Priority</option>
+        </select>
+        <input type="date" id="enterDate" class="inputDate">
+        </div>
 
-        <h3 id="count">Total Entries: 0</h3>
+        <div class="form-row">
+        <button type="submit" class="addTask" id="addTask">Add Task ➕</button>
+        <button type="button" id="clearAll">Clear All 🗑️</button>
+        <button type="button" id="logout">Logout <span id="logoutEmoji">⏻</span></button>
+        </div>
+        </form>
+        <span id="span"></span>
+        </div>
+        <div class="divSearch">
+        <input type="search" id="searchTask" class="inputSearch" placeholder="Search task...">
+         <button class="filterButton" id="filterButton">Filter</button>
+         <div class="centerFilter">
+         <div id="filterPanel" class="filter-panel hidden">
+            <span class="closeFilterSpan" id="closeFilterSpan">✖</span>
+            <h3>Filters</h3>
+
+            <label>Status</label>
+            <select class="statusFilter" id="statusFilter">
+                <option>All</option>
+                <option>Todo</option>
+                <option>In-Progress</option>
+                <option>Done</option>
+            </select>
+
+            <label>Priority</label>
+            <select class="priorityFilter" id="priorityFilter">
+                <option>All</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+         </div>
+         </div>
+        </div>
+        <div class="board">
+        <div id="todo-container">
+        </div>
+        <div id="in-progress-container">
+        </div>
+        <div id="done-container">
+        </div>
+        </div>
+
+        <div id="overlay"></div>
+        <div id="loadingOverlay">
+            <div id="spinner"></div>
+        </div>
         
-        <div id="formDiv" class="user-entry"><br>
-        </div>
-        </div>
-        <script src="event.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <script src="todo.js"></script>
     </body>
