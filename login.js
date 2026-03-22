@@ -13,6 +13,10 @@ let loginButton = document.getElementById('loginButton');
 let emailAlert = document.getElementById('emailAlert');
 let passwordAlert = document.getElementById('passwordAlert');
 
+if(localStorage.getItem('theme') === 'dark') {
+   document.body.classList.add('dark-mode');
+}
+
 async function login() {
      let userEmail = inputEmail.value;
      let userPassword = inputPassword.value;

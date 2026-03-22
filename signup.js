@@ -17,6 +17,10 @@ let createButton = document.getElementById('button');
     let passwordAlert = document.getElementById('passwordAlert');
     let confirmPasswordAlert = document.getElementById('confirmPasswordAlert');
 
+if(localStorage.getItem('theme') === 'dark') {
+   document.body.classList.add('dark-mode');
+}
+
 async function signUp() {
     let userName = nameInput.value;
     let userEmail = emailInput.value;

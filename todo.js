@@ -186,6 +186,20 @@ async function updateTaskPosition(newPosition, id) {
     .eq('id', id)
 }
 
+if(localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+}
+
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if(document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark')
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+})
+
 //Search Task and Filteration
 function searchfilteredTask() {
     let results = tasks;
@@ -402,7 +416,7 @@ function renderTasks(array = tasks) {
         } else if(differenceInDays === 1) {
             //Due In 1 day
             dueDateAlert.textContent = 'Due in 1 day';
-            dueDateAlert.style.color = 'rgb(80, 80, 80)';
+            dueDateAlert.style.color = 'rgb(100, 100, 100)';
         } else if(differenceInDays === 2) {
             //Due in 2 days
             dueDateAlert.style.color = 'rgb(80, 80, 80)';
@@ -556,34 +570,6 @@ todoContainer.addEventListener('drop', async (e) => {
   }
 
   await getData();
-//   let targetStatus = column.id.replace('-container', '');
-   
-//   if(sourceStatus === targetStatus) {//Drops task in the same Container
-//     tasks.splice(index, 1); //Deletes the Dragged task from it position through it's index;
-
-    //Drops the task in the empty space
-    // if(targetIndex === -1) {
-    //     tasks.push(draggedItem);
-    // } else {
-        //Drops the task at the targeted task
-//     let isMovingDown = index < targetIndex;
-//     let insertIndex = isMovingDown ? targetIndex : targetIndex;
-//     tasks.splice(insertIndex, 0, draggedItem);
-//     };
-// } else {
-    //Drops the task across the Container
-//     tasks.splice(index, 1);
-//     draggedItem.status = targetStatus;
-//     let isMovingDown = index < targetIndex;
-//     let insertIndex = isMovingDown ? targetIndex - 1 : targetIndex;
-//     tasks.splice(insertIndex, 0, draggedItem);
-//     // tasks.push(draggedItem);
-//   };
-// //   await supabaseConnection();
-// console.log("DROP TRIGGERED");
-//   await getData(newStatus);
-//    localStorage.setItem('tasks', JSON.stringify(tasks));
-    // renderTasks();
 });
 
 
@@ -628,47 +614,6 @@ progressContainer.addEventListener('drop', async (e) => {
   }
 
   await getData();
-
-//   let targetTaskEl = e.target.closest('p');
-//   let targetIndex = targetTaskEl ? tasks.findIndex(t => t.id === targetTaskEl.dataset.id) : -1; //targetIndex
-
-//   console.log("DOM ID:", id);
-// console.log("Tasks:", tasks);
-   
-//   let index = tasks.findIndex(t => t.id === id);//dragIndex;
-//   let draggedItem = tasks[index];
-//   console.log('index', index);
-
-//   let sourceStatus = draggedItem.status;
-//   let targetStatus = column.id.replace('-container', '');
-
-//   if(sourceStatus === targetStatus) {//Drops task in the same Container
-//      tasks.splice(index, 1); //Deletes the Dragged task from it position through it's index;
-
-//      //Drops the task in the empty space
-//      if(targetIndex === -1) {
-//         tasks.push(draggedItem);
-//      } else {
-//         //Drops the task at the targeted task
-//         let isMovingDown = index < targetIndex;
-//         let insertIndex = isMovingDown ? targetIndex : targetIndex;
-//         tasks.splice(insertIndex, 0, draggedItem);
-//      };
-//   } else {
-//      //Drops the task across the Container
-//      tasks.splice(index, 1);
-//      draggedItem.status = targetStatus;
-//      let isMovingDown = index < targetIndex;
-//         let insertIndex = isMovingDown ? targetIndex - 1 : targetIndex;
-//         tasks.splice(insertIndex, 0, draggedItem);
-//         console.log(insertIndex);
-//     //  tasks.push(draggedItem);
-//   };
-// //   await supabaseConnection();
-// console.log("DROP TRIGGERED");
-//   await getData(newStatus);
-//    localStorage.setItem('tasks', JSON.stringify(tasks));
-    // renderTasks();
 });
 
 //Done Container Drop
@@ -712,41 +657,6 @@ doneContainer.addEventListener('drop', async (e) => {
   }
 
   await getData();
-//   let targetTaskEl = e.target.closest('p');
-//    let targetIndex = targetTaskEl ? tasks.findIndex(t => t.id === targetTaskEl.dataset.id) : -1; //targetIndex
-
-//   let index = tasks.findIndex(t => t.id === id);//dragIndex
-//   let draggedItem = tasks[index];
-
-//   let sourceStatus = draggedItem.status;
-//   let targetStatus = column.id.replace('-container', '');
-
-//   if(sourceStatus === targetStatus) { //Drops task in the same Container
-//     tasks.splice(index, 1); //Deletes the Dragged task from it position through it's index;
-
-//      //Drops the task in the empty space
-//     if(targetIndex === -1) {
-//         tasks.push(draggedItem);
-//     } else {
-//          //Drops the task at the targeted task
-//         let isMovingDown = index < targetIndex;
-//         let insertIndex = isMovingDown ? targetIndex : targetIndex;
-//         tasks.splice(insertIndex, 0, draggedItem);
-//     };
-//   } else {
-//     //Drops the task across the Container
-//     tasks.splice(index, 1);
-//     draggedItem.status = targetStatus;
-//     let isMovingDown = index < targetIndex;
-//         let insertIndex = isMovingDown ? targetIndex - 1 : targetIndex;
-//         tasks.splice(insertIndex, 0, draggedItem);
-//         // console.log(targetIndex);
-//     // tasks.push(draggedItem);
-//   };
-//   await supabaseConnection();
-//   getData();
-    // localStorage.setItem('tasks', JSON.stringify(tasks));
-    // renderTasks();
 });
 
 //Todo Container Click Listener

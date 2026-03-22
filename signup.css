@@ -2,9 +2,21 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: rgb(240, 240, 240);
+    --column-color: rgb(240, 240, 240);
+    --text-color: black;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --column-color: #1e1e1e;
+    --text-color: white;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(220, 220, 220);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +24,8 @@ body {
 }
 
 .signupPage {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--column-color);
+    color: var(--text-color);
     box-shadow: 0.3px 0.4px 5px rgb(120, 120, 120);
     display: grid;
     width: 350px;
@@ -28,12 +41,14 @@ body {
 
 .signupPage label {
     font-size: 14px;
-    color: rgb(100, 100, 100);
+    color: var(--text-color);
     padding-top: 20px;
 }
 
 .signupPage input {
     border: none;
+    background-color: var(--column-color);
+    color: var(--text-color);
     border-bottom: 1px solid rgb(100, 100, 100);
     margin-bottom: 6px;
     padding: 7px;
@@ -51,13 +66,15 @@ body {
     border-radius: 6px;
     cursor: pointer;
     margin-top: 25px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .login {
     padding-top: 10px;
     text-align: left;
     font-size: 14px;
-    color: rgb(100, 100, 100)
+    color: var(--text-color);
 }
 
 .nameAlert {
@@ -91,8 +108,8 @@ body {
 
 .button:hover {
     transform: scale(1.06);
-    background-color: rgb(120, 120, 120);
-    color: rgb(255, 255, 255)
+    background-color: var(--column-color);
+    color: var(--text-color)
 }
 
 .button:active {
