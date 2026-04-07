@@ -68,7 +68,37 @@
 
         <div id="overlay"></div>
         <div id="loadingOverlay">
-            <div id="spinner"></div>
+            <!-- <div id="spinner"></div> -->
+             <h1 class="titleSkeleton"></h1>
+        <div id="formSkeleton">
+             <button id="enterTaskSkeleton" class="inputTaskSkeleton"></button>
+        <div class="form-row">
+        <button name="priority" id="prioritySkeleton"></button>
+        <button  id="enterDateSkeleton" class="inputDateSkeleton"></button>
+        </div>
+
+        <div class="form-row">
+        <button type="submit" class="addTaskSkeleton" id="addTaskSkeleton"></button>
+        <button type="button" id="clearAllSkeleton"></button>
+        <button type="button" id="logoutSkeleton"></button>
+        <button type="button" id="darkModeToggleSkeleton"></button>
+        
+        </div>
+        </div>
+
+         <div class="divSearchSkeleton">
+        <button id="searchTaskSkeleton" class="inputSearchSkeleton"></button>
+         <button class="filterButtonSkeleton" id="filterButtonSkeleton"></button>
+         </div>
+
+        <div id="skeletonBoard">
+        <div id="todo-skeleton">
+        </div>
+        <div id="in-progress-skeleton">
+        </div>
+        <div id="done-skeleton">
+        </div>
+        </div>
         </div>
         
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>

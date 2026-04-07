@@ -35,6 +35,7 @@ let supaBase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
  let userId = null;
 
+ 
 async function checkSession() {
 let {data: {session} } = await supaBase.auth.getSession();
 
@@ -46,6 +47,7 @@ if(!session) {
 await getData();
 document.getElementById('loadingOverlay').style.display = 'none';
 }
+
 
 checkSession();
 
@@ -437,7 +439,6 @@ function renderTasks(array = tasks) {
             //Showcase empty if the date is not selected
             dueDateAlert.textContent = '';
         };
-        // tasks.sort((a, b) => a.position - b.position)
     });
 };
 

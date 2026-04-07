@@ -149,7 +149,6 @@ form {
     text-align: start;
     padding: 0;
     height: 470px;
-    /* max-height: 470px; */
     background-color: var(--column-color);
     border: none;
     box-shadow:  0.3px 0.4px 5px rgb(120, 120, 120);
@@ -532,6 +531,8 @@ form {
     right: 0px;
     padding: 4px;
     width: 23px;
+    border-top-right-radius: 10px;
+
 }
 
 .closeFilterSpan:hover {
@@ -614,17 +615,137 @@ form {
     background: var(--column-color);
     z-index: 9999;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-#spinner {
+/* #spinner {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     border: 3px solid rgb(220, 220, 220);
     border-top: 3px solid rgb(99, 102, 241);
     animation: spin 1s linear infinite;
+} */
+
+#skeletonBoard {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.titleSkeleton {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    padding: 20px;
+    background-color: rgb(170, 170, 170);
+    border-radius: 6px;
+    animation: skeletons 1.2s infinite linear;
+}
+
+#formSkeleton {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+    width: 100%;
+}
+
+#enterTaskSkeleton {
+    padding: 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(170, 170, 170);
+    border: none;
+    animation: skeletons 1.2s infinite linear;
+}
+
+#prioritySkeleton, #enterDateSkeleton {
+    width: 150px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(170, 170, 170);
+    border: none;
+    animation: skeletons 1.2s infinite linear;
+}
+
+#addTaskSkeleton, #clearAllSkeleton, #logoutSkeleton {
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(170, 170, 170);
+    border: none;
+    animation: skeletons 1.2s infinite linear;
+}
+
+.divSearchSkeleton {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+    width: 100%;
+}
+
+#searchTaskSkeleton, #filterButtonSkeleton {
+     width: 120px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(170, 170, 170);
+    border: none;
+    animation: skeletons 1.2s infinite linear;
+    background-image: none;
+    box-shadow: none;
+     margin-top: 15px;
+     margin-bottom: 15px
+}
+
+/* #filterButtonSkeleton {
+     width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(170, 170, 170);
+    border: none;
+    animation: skeletons 1.2s infinite linear;
+} */
+
+
+#darkModeToggleSkeleton {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(170, 170, 170);
+    border: none;
+    animation: skeletons 1.2s infinite linear;
+}
+
+#todo-skeleton,
+#in-progress-skeleton,
+#done-skeleton {
+    min-width: 0;
+    color: var(--text-color);
+    flex: 1;
+    text-align: start;
+    padding: 0;
+    height: 470px;
+    background-color: rgb(175, 175, 175);
+    border: none;
+    border-radius: 7px;
+     overflow-y: auto;
+     position: relative;
+     margin: 10px;
+     animation: skeletons 1.2s infinite linear
+}
+
+#formSkeleton {
+    display: flex;
+    justify-content: center;
+    gap: 17px
+}
+
+@keyframes skeletons {
+    0% {opacity: 0.6}
+    50% {opacity: 1.0}
+    100% {opacity: 0.6}
 }
 
 @keyframes spin {
